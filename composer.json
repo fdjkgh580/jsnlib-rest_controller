@@ -1,4 +1,6 @@
 {
+    "name": "Jnslib/REST_Controller",
+    "type": "library",
     "autoload": {
         "psr-4": {
             "Jsnlib\\": "src/"
