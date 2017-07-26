@@ -1,5 +1,5 @@
 <?php
-namespace Jsnlib;
+namespace Jsnlib\Codeigniter;
 /**
  * 擴充 REST_Controller.php
  */
