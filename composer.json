@@ -1,5 +1,5 @@
 {
-    "name": "Jnslib/rest_controller",
+    "name": "jsnlib/rest_controller",
     "type": "library",
     "autoload": {
         "psr-4": {
