@@ -23,33 +23,25 @@ class REST_Controller extends \REST_Controller
         parent::response($result);
     }
 
-    /**
-     * 輸出格式
-     * @param    $result  mix          結果
-     * @param    $message string       語意訊息
-     * @param    $param   \Jsnlib\Ao   參數   
-     */
-    protected function output($result, $message = false, $param = false)
+    static public function error($code, $message, $data = false)
     {
-        // 有夾帶參數
-        if ($param !== false) 
-        {
-            $param_ary = $param->toArray();
+        $ary = 
+        [
+            'error' => 
+            [
+                'code' => $code, 
+                'message' => $message
+            ]
+        ];
 
-            // 只取出 data 的部分提供顯示
-            $obj       = new \Jsnlib\Ao($param_ary['data']);
-        }
-        // 沒有就空陣列
-        else 
-        {
-            $obj     = new \Jsnlib\Ao([]);
-        }
+        if ($data !== false) $ary['error']['data'] = $data;
 
-        // 添加額外參數
-        $obj->result  = $result;
-        $obj->message = $message;
+        return new \Jsnlib\Ao($ary);
+    }
 
-        parent::response($obj);
+    static public function success($data)
+    {
+        return new \Jsnlib\Ao($data);
     }
     
 
