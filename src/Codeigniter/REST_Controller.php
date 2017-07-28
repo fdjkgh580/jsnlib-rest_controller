@@ -39,8 +39,12 @@ class REST_Controller extends \REST_Controller
         return new \Jsnlib\Ao($ary);
     }
 
-    static public function success($data)
+    // 若成功的話，不使用 $data 參數，會自動使用 ['status' => true]
+    static public function success($data = false)
     {
+        if ($data === false)
+            return new \Jsnlib\Ao(['status' => true]);
+
         return new \Jsnlib\Ao($data);
     }
     
