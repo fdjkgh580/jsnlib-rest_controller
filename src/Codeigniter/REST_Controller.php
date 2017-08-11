@@ -12,9 +12,9 @@ class REST_Controller extends \REST_Controller
 
     protected function respary($result)
     {
-        if (is_object($result->data))
+        if (is_object($result))
         {
-            $result->data = $result->data->toArray();
+            $result = $result->toArray();
         }
         elseif (empty($result))
         {
